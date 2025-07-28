@@ -1,0 +1,37 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    volumes:
+      - ./html:/var/www/html           # map content of ./html in your computer to /var/www/html of container
+  nginx:
+    image: nginx:1.29                  # set the nginx version you need for your project
+    ports:
+      - "8000:80"                      # map your computer port to the container port
+    depends_on:
+      - php
+    volumes:
+      - ./html:/var/www/html           # map content of ./html in your computer to /var/www/html of container
+      - ./nginx_conf:/etc/nginx/conf.d # map content of ./nginx-conf in your computer to /etc/nginx/conf.d of container
+  mariadb:
+    image: mariadb:10.11               # set the mariadb version you need for your project
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234       # set mysql root pw or use: MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=blogdb          # this is optional, name a database to be created on image creation
+      - MYSQL_USER=blog                # this is optional, name a user to be created on image create
+      - MYSQL_PASSWORD=1234            # this is optional, password for the above created user
+      - MYSQL_TCP_PORT=3306            # this is optional, default port is 3306
+    volumes:
+      - ./mariadb_data:/var/lib/mysql  # map content of ./mariadb_data in your computer to /var/lib/mysql of container
+  phpmyadmin:
+    image: phpmyadmin:5.2.2            # set the phpmyadmin version you need for your project
+    ports:
+      - "8080:80"                      # map your computer port to the container port
+    depends_on:
+      - mariadb
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_PORT=3306
