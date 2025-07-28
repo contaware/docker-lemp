@@ -46,8 +46,8 @@
         echo "<h2>Information</h2>\n";
         echo "<pre>";
         echo "PHP Version:        " . phpversion() . "<br>";
-        echo "IP of webserver:    " . gethostbyname(gethostname()) . "<br>";
-        echo "User of webserver:  " . exec("whoami") . "<br>";
+        echo "IP of php:          " . gethostbyname("php") . "<br>";
+        echo "IP of nginx:        " . gethostbyname("nginx") . "<br>";
         echo "IP of mariadb:      " . gethostbyname("mariadb") . "<br>";
         echo "IP of phpmyadmin:   " . gethostbyname("phpmyadmin") . "<br>";
         echo "Int range and size: " . PHP_INT_MIN . " to " . PHP_INT_MAX . " (" . PHP_INT_SIZE . " bytes)" . "<br>";
