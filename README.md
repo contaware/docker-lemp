@@ -60,6 +60,6 @@ Other than the **root** user, there is also a **blog** user with a **blogdb** da
 
 ### phpMyAdmin
 
-phpMyAdmin is accessed through <http://localhost:8080>. Use the credentials reported in the previous section.
+phpMyAdmin is accessed through <http://localhost:8081>. Use the credentials reported in the previous section.
 
 Change version and port in *./compose.yaml*.

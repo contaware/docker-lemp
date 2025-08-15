@@ -31,7 +31,7 @@ services:
   phpmyadmin:
     image: phpmyadmin:5.2.2            # set the phpmyadmin version you need for your project
     ports:
-      - "8080:80"                      # map your computer port to the container port
+      - "8081:80"                      # map your computer port to the container port
     depends_on:
       - mariadb
     environment:
