@@ -37,3 +37,4 @@ services:
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306
+      - UPLOAD_LIMIT=512M              # set upload_max_filesize and post_max_size
