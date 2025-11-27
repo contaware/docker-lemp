@@ -79,7 +79,8 @@
     echo "<h2>Information</h2>\n";
     echo "<pre>\n";
     echo "PHP Version:        " . phpversion() . "\n";
-    echo "IP of php:          " . gethostbyname("php") . "\n";
+    echo "IP of php:          " . gethostbyname(gethostname()) . "\n";
+    echo "Id of php:          " . exec("id") . "\n";
     echo "IP of nginx:        " . gethostbyname("nginx") . "\n";
     echo "IP of mariadb:      " . gethostbyname("mariadb") . "\n";
     echo "IP of phpmyadmin:   " . gethostbyname("phpmyadmin") . "\n";
