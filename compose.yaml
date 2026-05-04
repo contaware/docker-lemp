@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - 'MYVAR=my value'               # show how to pass environment variables to PHP
     depends_on:
       - db
     volumes:
